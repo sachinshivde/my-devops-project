@@ -6,7 +6,7 @@ pipeline {
         stage('Clone') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/YOUR_USERNAME/my-devops-project.git'
+                url: 'https://github.com/sachinshivde/my-devops-project.git'
             }
         }
 
@@ -25,11 +25,11 @@ pipeline {
         stage('Push ECR') {
             steps {
                 sh '''
-                aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
+                aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 280072638346.dkr.ecr.ap-south-1.amazonaws.com
 
-                docker tag devops-app:latest ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/devops-app:latest
+                docker tag devops-app:latest 280072638346.dkr.ecr.ap-south-1.amazonaws.com/devops-app:latest
 
-                docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/devops-app:latest
+                docker push 280072638346.dkr.ecr.ap-south-1.amazonaws.com/devops-app:latest
                 '''
             }
         }
